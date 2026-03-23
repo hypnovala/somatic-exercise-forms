@@ -1,0 +1,83 @@
+import { SavedFormEntry } from '@/types/forms';
+
+export const demoEntries: SavedFormEntry[] = [
+  {
+    slug: 'daily-check-in',
+    title: 'Daily Nervous System Check-In',
+    status: 'completed',
+    updatedAt: '2026-03-21T08:15:00.000Z',
+    completedAt: '2026-03-21T08:15:00.000Z',
+    values: {
+      date: '2026-03-21',
+      energyLevel: 6,
+      stressLevel: 5,
+      sleepQuality: 7,
+      tensionAreas: ['jaw', 'shoulders'],
+      sensations: ['tightness', 'pressure'],
+      emotion: 'Focused but stretched',
+      reflection: 'My pace feels fast, but I can still notice my breath when I pause.',
+      supportiveAction: 'Take two outdoor breaks and unclench my jaw between visits.',
+    },
+  },
+  {
+    slug: 'body-awareness',
+    title: '60-Second Body Awareness Form',
+    status: 'draft',
+    updatedAt: '2026-03-22T18:40:00.000Z',
+    values: {
+      beforeStressLevel: 7,
+      tensionArea: 'Upper chest',
+      changeAfter: 'Breath slowed and my shoulders dropped a little.',
+      afterStressLevel: 5,
+      grounded: 'a-little',
+      notes: 'A short reset helped more than I expected.',
+    },
+  },
+  {
+    slug: 'end-of-shift-reset',
+    title: 'End-of-Shift Reset Form',
+    status: 'completed',
+    updatedAt: '2026-03-20T22:05:00.000Z',
+    completedAt: '2026-03-20T22:05:00.000Z',
+    values: {
+      activationLevel: 4,
+      jawRelaxed: 'yes',
+      shouldersSoftened: 'yes',
+      breathingHelped: 'a-little',
+      neutralThings: ['The chair under my legs', 'Cool air near the doorway', 'A steady hallway light'],
+      softerNow: 'My shoulders feel less lifted than they did ten minutes ago.',
+      notes: 'A short pause made the transition home feel more manageable.',
+    },
+  },
+  {
+    slug: 'emotional-body-map',
+    title: 'Emotional Body Map Reflection Form',
+    status: 'draft',
+    updatedAt: '2026-03-19T14:10:00.000Z',
+    values: {
+      bodyArea: 'chest',
+      sensation: 'pressure',
+      possibleEmotion: 'concerned',
+      intensity: 6,
+      needRightNow: 'A slower pace and one minute of quiet before my next task.',
+      notes: 'The sensation feels strongest when I rush from one demand to the next.',
+    },
+  },
+  {
+    slug: 'regulation-tracker',
+    title: '7-Day Regulation Tracker',
+    status: 'completed',
+    updatedAt: '2026-03-22T20:15:00.000Z',
+    completedAt: '2026-03-22T20:15:00.000Z',
+    values: {
+      days: Array.from({ length: 7 }, (_, index) => ({
+        day: index + 1,
+        bodyScanCompleted: index < 5,
+        breathingCompleted: index < 6,
+        groundingCompleted: index % 2 === 0,
+        shoulderResetCompleted: index !== 3,
+        notes: index === 2 ? 'Needed extra quiet after a long shift.' : index === 5 ? 'Outdoor air helped me reset more quickly.' : '',
+      })),
+    },
+  },
+];
