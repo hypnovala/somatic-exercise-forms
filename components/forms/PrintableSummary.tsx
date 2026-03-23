@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
 import { formatDate, formatDateTime } from '@/lib/utils';
-import { FormDefinition, FormSlug, TrackerDay } from '@/types/forms';
+import { FormDefinition, FormSlug, SavedFormEntry, TrackerDay } from '@/types/forms';
 import { useSavedForms } from '@/lib/useSavedForms';
 
 function formatLabel(value: string) {
@@ -47,6 +47,28 @@ function renderValue(fieldName: string, value: unknown): string {
   return String(value ?? 'Not provided');
 }
 
+function buildEmailHref(form: FormDefinition & { slug: FormSlug }, entry: SavedFormEntry) {
+  const summaryLines = form.fields.map((field) => {
+    const value = renderValue(field.name, (entry.values as Record<string, unknown>)[field.name]);
+    return `${field.label}: ${value}`;
+  });
+
+  const subject = `${form.title} summary`;
+  const body = [
+    'Brock Somatic Exercise Forms',
+    '',
+    `Form: ${form.title}`,
+    `Status: ${formatLabel(entry.status)}`,
+    `Last saved: ${formatDateTime(entry.updatedAt)}`,
+    '',
+    ...summaryLines,
+    '',
+    'Education only. Not medical advice.',
+  ].join('\n');
+
+  return `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 export function PrintableSummary({ form }: { form: FormDefinition & { slug: FormSlug } }) {
   const { currentEntry, demoMode } = useSavedForms(form.slug);
 
@@ -57,14 +79,22 @@ export function PrintableSummary({ form }: { form: FormDefinition & { slug: Form
           <p className="text-sm uppercase tracking-[0.18em] text-stone">Printable summary</p>
           <h1 className="text-4xl font-semibold text-ink">{form.title}</h1>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
           <Link href={`/forms/${form.slug}`} className="rounded-full bg-white px-4 py-3 text-sm font-semibold text-ink ring-1 ring-mist">Back to form</Link>
+          {currentEntry ? (
+            <a
+              href={buildEmailHref(form, currentEntry)}
+              className="inline-flex items-center justify-center rounded-full bg-white px-4 py-3 text-sm font-semibold text-ink ring-1 ring-mist transition hover:bg-canvas focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2"
+            >
+              Email summary
+            </a>
+          ) : null}
           <button type="button" onClick={() => window.print()} className="rounded-full bg-ink px-4 py-3 text-sm font-semibold text-white">Print page</button>
         </div>
       </div>
       <Card className="p-8 print:rounded-none print:border-0 print:shadow-none">
         <div className="space-y-4 border-b border-mist pb-6">
-          <p className="text-sm uppercase tracking-[0.18em] text-stone">Somatic Exercise Forms</p>
+          <p className="text-sm uppercase tracking-[0.18em] text-stone">Brock Somatic Exercise Forms</p>
           <h2 className="text-3xl font-semibold text-ink">{form.title}</h2>
           <p className="max-w-3xl text-sm leading-6 text-stone">{form.summary}</p>
           {currentEntry ? (

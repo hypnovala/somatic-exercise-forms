@@ -1,5 +1,5 @@
 export const siteTheme = {
-  name: 'Somatic Exercise Forms',
+  name: 'Brock Somatic Exercise Forms',
   tagline: 'Simple guided check-ins for steady, everyday support.',
   description:
     'A calm, mobile-first website with reusable somatic exercise forms, printable summaries, and local progress tracking.',

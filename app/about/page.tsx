@@ -14,7 +14,7 @@ export default function AboutPage() {
       <SectionIntro
         titleAs="h1"
         eyebrow="About"
-        title="About Somatic Exercise Forms"
+        title="About Brock Somatic Exercise Forms"
         description="A calm, educational website for body-based check-ins, regulation tracking, and printable summaries."
       />
 

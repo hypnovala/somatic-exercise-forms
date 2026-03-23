@@ -13,12 +13,12 @@ export function generateMetadata({ params }: { params: { slug: FormSlug } }): Me
 
   if (!form) {
     return {
-      title: 'Printable summary | Somatic Exercise Forms',
+      title: 'Printable summary | Brock Somatic Exercise Forms',
     };
   }
 
   return {
-    title: `${form.title} Summary | Somatic Exercise Forms`,
+    title: `${form.title} Summary | Brock Somatic Exercise Forms`,
     description: `Printable summary for ${form.title}.`,
   };
 }

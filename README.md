@@ -1,6 +1,6 @@
-# Somatic Exercise Forms
+# Brock Somatic Exercise Forms
 
-Somatic Exercise Forms is a production-ready Next.js website with calm, interactive forms for nurses, educators, caregivers, healthcare workers, and other people navigating high-stress roles.
+Brock Somatic Exercise Forms is a production-ready Next.js website with calm, interactive forms for nurses, educators, caregivers, healthcare workers, and other people navigating high-stress roles.
 
 ## Stack
 

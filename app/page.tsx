@@ -29,7 +29,7 @@ export default function HomePage() {
         <div className="space-y-6">
           <SectionIntro
             titleAs="h1"
-            title="Somatic Exercise Forms for Everyday Nervous System Support"
+            title="Brock Somatic Exercise Forms for Everyday Nervous System Support"
             description="Simple guided check-ins to help you notice stress patterns, reconnect with your body, and take small supportive steps toward feeling more grounded."
           />
           <div className="flex flex-col gap-3 sm:flex-row">
