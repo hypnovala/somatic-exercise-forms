@@ -121,7 +121,7 @@ export function Field<T extends Record<string, any>>({ field, register, control,
         render={({ field: controllerField }) => {
           const values = Array.isArray(controllerField.value) ? controllerField.value : [];
           return (
-            <fieldset aria-describedby={describedBy} className="space-y-3">
+            <fieldset aria-describedby={describedBy} aria-invalid={Boolean(message)} className="space-y-3">
               <legend className="text-sm font-medium text-ink">{field.label}</legend>
               {field.description ? (
                 <p id={helperId} className="text-sm text-stone">
@@ -205,7 +205,7 @@ export function Field<T extends Record<string, any>>({ field, register, control,
         <div className="flex flex-wrap gap-3">
           {field.options?.map((option) => (
             <label key={option.value} className="flex cursor-pointer items-center gap-2 rounded-full border border-mist bg-white px-4 py-3 text-sm transition hover:border-sage focus-within:ring-2 focus-within:ring-sky/40">
-              <input type="radio" value={option.value} aria-invalid={Boolean(message)} {...register(field.name as any)} />
+              <input type="radio" value={option.value} {...register(field.name as any)} />
               {option.label}
             </label>
           ))}

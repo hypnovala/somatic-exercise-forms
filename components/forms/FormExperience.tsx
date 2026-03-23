@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { DefaultValues, useForm } from 'react-hook-form';
 import { CheckCircle2, Printer, RotateCcw, Save } from 'lucide-react';
 import { defaultValues, formSchemas } from '@/lib/validation';
 import { clearEntry, saveEntry } from '@/lib/storage';
@@ -25,7 +25,7 @@ export function FormExperience<K extends FormSlug>({ form }: { form: FormDefinit
   const formMethods = useForm<FormValuesMap[K]>({
     resolver: zodResolver(formSchemas[form.slug]),
     mode: 'onBlur',
-    defaultValues: defaultValues[form.slug],
+    defaultValues: defaultValues[form.slug] as DefaultValues<FormValuesMap[K]>,
   });
 
   const watchedValues = formMethods.watch();
@@ -40,7 +40,7 @@ export function FormExperience<K extends FormSlug>({ form }: { form: FormDefinit
       return;
     }
 
-    formMethods.reset(defaultValues[form.slug]);
+    formMethods.reset(defaultValues[form.slug] as DefaultValues<FormValuesMap[K]>);
     setCompleted(false);
     setStatusMessage('This form is ready for a new entry on this device.');
   }, [currentStoredEntry, form.slug, formMethods]);
@@ -73,7 +73,7 @@ export function FormExperience<K extends FormSlug>({ form }: { form: FormDefinit
   };
 
   const onClear = () => {
-    formMethods.reset(defaultValues[form.slug]);
+    formMethods.reset(defaultValues[form.slug] as DefaultValues<FormValuesMap[K]>);
     clearEntry(form.slug);
     setCompleted(false);
     setStatusMessage('Saved entry cleared from this device.');

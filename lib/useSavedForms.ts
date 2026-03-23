@@ -2,15 +2,17 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { getEntries, getStoredEntries, isUsingDemoData, STORAGE_EVENT } from '@/lib/storage';
-import { FormSlug } from '@/types/forms';
+import { FormSlug, SavedFormEntry } from '@/types/forms';
 
 export function useSavedForms(slug?: FormSlug) {
   const [entries, setEntries] = useState(getEntries());
+  const [storedEntries, setStoredEntries] = useState<SavedFormEntry[]>(getStoredEntries());
   const [demoMode, setDemoMode] = useState(isUsingDemoData());
 
   useEffect(() => {
     const refresh = () => {
       setEntries(getEntries());
+      setStoredEntries(getStoredEntries());
       setDemoMode(isUsingDemoData());
     };
 
@@ -24,7 +26,6 @@ export function useSavedForms(slug?: FormSlug) {
     };
   }, []);
 
-  const storedEntries = useMemo(() => getStoredEntries(), [entries]);
   const currentEntry = useMemo(() => entries.find((entry) => entry.slug === slug), [entries, slug]);
   const currentStoredEntry = useMemo(() => storedEntries.find((entry) => entry.slug === slug), [storedEntries, slug]);
 
