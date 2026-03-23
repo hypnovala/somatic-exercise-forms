@@ -54,7 +54,7 @@ export default function HomePage() {
       <section className="space-y-6">
         <SectionIntro
           eyebrow="Why this helps"
-          title="A calm scaffold for noticing, reflecting, and responding."
+          title="A calm structure for noticing, reflecting, and responding."
           description="When stress builds, it can become harder to notice what your body is asking for. These forms are designed to slow the moment down just enough to help you observe, reflect, and respond with more awareness."
         />
         <div className="grid gap-4 md:grid-cols-3">
@@ -76,8 +76,8 @@ export default function HomePage() {
       <section className="space-y-6">
         <SectionIntro
           eyebrow="Included forms"
-          title="Core check-ins included in the scaffold"
-          description="The scaffold includes the main forms library structure so each check-in can share the same layout, tone, and reusable UI system."
+          title="Core check-ins ready to support your day"
+          description="Each form offers a steady, repeatable way to observe what is showing up, reflect on what feels supportive, and save your notes on this device."
         />
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
           {formDefinitions.map((form) => (

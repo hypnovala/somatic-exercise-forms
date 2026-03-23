@@ -14,7 +14,7 @@ export function FormCard({ form }: { form: FormDefinition }) {
     <Card className="flex h-full flex-col p-6">
       <div className="mb-5 flex items-center justify-between text-sm text-stone">
         <span className="rounded-full bg-sky/15 px-3 py-1 text-ink">{form.estimatedTime}</span>
-        <span className="flex items-center gap-1"><Clock3 className="h-4 w-4" />Reset form</span>
+        <span className="flex items-center gap-1"><Clock3 className="h-4 w-4" />Guided check-in</span>
       </div>
       <div className="space-y-3">
         <div className="flex flex-wrap items-center gap-2">
