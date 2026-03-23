@@ -119,7 +119,9 @@ export function Field<T extends Record<string, any>>({ field, register, control,
         control={control}
         name={field.name as any}
         render={({ field: controllerField }) => {
-          const values = Array.isArray(controllerField.value) ? [...controllerField.value] as string[] : [];
+          const values = Array.isArray(controllerField.value)
+            ? controllerField.value.map((value) => String(value))
+            : [];
           return (
             <fieldset aria-describedby={describedBy} aria-invalid={Boolean(message)} className="space-y-3">
               <legend className="text-sm font-medium text-ink">{field.label}</legend>
