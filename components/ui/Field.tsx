@@ -195,7 +195,7 @@ export function Field<T extends Record<string, any>>({ field, register, control,
 
   if (field.type === 'radio') {
     return (
-      <fieldset aria-describedby={describedBy} className="space-y-3">
+      <fieldset aria-describedby={describedBy} aria-invalid={Boolean(message)} className="space-y-3">
         <legend className="text-sm font-medium text-ink">{field.label}</legend>
         {field.description ? (
           <p id={helperId} className="text-sm text-stone">
