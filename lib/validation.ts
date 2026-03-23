@@ -12,7 +12,7 @@ const daySchema = z.object({
   notes: z.string().max(240, 'Keep notes under 240 characters.').default(''),
 });
 
-export const formSchemas: { [K in FormSlug]: z.ZodType<FormValuesMap[K]> } = {
+export const formSchemas = {
   'daily-check-in': z.object({
     date: z.string().min(1, nonEmptyMessage),
     energyLevel: z.number().min(1).max(10),
@@ -52,7 +52,7 @@ export const formSchemas: { [K in FormSlug]: z.ZodType<FormValuesMap[K]> } = {
   'regulation-tracker': z.object({
     days: z.array(daySchema).length(7, 'Track seven days.'),
   }),
-};
+} satisfies { [K in FormSlug]: z.ZodTypeAny };
 
 export const defaultValues: FormValuesMap = {
   'daily-check-in': {
