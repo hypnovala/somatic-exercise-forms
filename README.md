@@ -15,7 +15,7 @@ Brock Somatic Exercise Forms is a production-ready Next.js website with calm, in
 
 ## Features
 
-- Five reusable somatic exercise forms with validation
+- Ten reusable somatic exercise forms with validation
 - Draft saving and completed states stored in `localStorage`
 - Progress tracker with explicit sample-data demo mode fallback
 - Printable summary pages that pull from the current device
@@ -76,7 +76,7 @@ No environment variables are required for v1 because all form persistence is han
 
 - User entries are stored locally in the browser with `localStorage`.
 - If no local entries exist yet, the app shows sample data in demo mode so the progress and print experiences never feel empty.
-- Demo data now includes all five forms so the seeded experience better matches the full app.
+- Demo data now includes all ten forms so the seeded experience better matches the full app.
 - Saved entries stay on the current device and browser profile.
 
 ## Product note

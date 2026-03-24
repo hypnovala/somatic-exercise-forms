@@ -3,7 +3,12 @@ export type FormSlug =
   | 'body-awareness'
   | 'end-of-shift-reset'
   | 'emotional-body-map'
-  | 'regulation-tracker';
+  | 'regulation-tracker'
+  | 'pendulation-tracking'
+  | 'resource-anchoring'
+  | 'titration-awareness'
+  | 'boundary-containment'
+  | 'somatic-tracking';
 
 export type ProgressStatus = 'draft' | 'completed';
 
@@ -103,12 +108,62 @@ export type RegulationTrackerValues = {
   days: TrackerDay[];
 };
 
+export type PendulationTrackingValues = {
+  activationLevel: number;
+  settlingLevel: number;
+  resourceNoticed: string;
+  transitionNotes: string;
+  steadyMoment: string;
+  notes: string;
+};
+
+export type ResourceAnchoringValues = {
+  resourceName: string;
+  bodyArea: string;
+  sensation: string;
+  anchorPhrase: string;
+  supportLevel: number;
+  nextSupport: string;
+};
+
+export type TitrationAwarenessValues = {
+  activationLevel: number;
+  smallerStep: string;
+  pauseSignal: string;
+  afterShift: string;
+  paceSupported: string;
+  notes: string;
+};
+
+export type BoundaryContainmentValues = {
+  situation: string;
+  bodyCue: string;
+  supportNeeded: string;
+  boundaryStep: string;
+  settledLevel: number;
+  notes: string;
+};
+
+export type SomaticTrackingValues = {
+  bodyArea: string;
+  sensation: string;
+  intensity: number;
+  pace: string;
+  observation: string;
+  supportNow: string;
+};
+
 export type FormValuesMap = {
   'daily-check-in': DailyCheckInValues;
   'body-awareness': BodyAwarenessValues;
   'end-of-shift-reset': EndOfShiftValues;
   'emotional-body-map': EmotionalBodyMapValues;
   'regulation-tracker': RegulationTrackerValues;
+  'pendulation-tracking': PendulationTrackingValues;
+  'resource-anchoring': ResourceAnchoringValues;
+  'titration-awareness': TitrationAwarenessValues;
+  'boundary-containment': BoundaryContainmentValues;
+  'somatic-tracking': SomaticTrackingValues;
 };
 
 export type SavedFormEntry<T = unknown> = {

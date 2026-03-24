@@ -125,6 +125,114 @@ export const formDefinitions: FormDefinition[] = [
     audience: 'Helpful when you want a broader view of what supports you through a demanding week.',
     fields: [{ name: 'days', label: '7-day tracker', type: 'tracker' }],
   },
+  {
+    slug: 'pendulation-tracking',
+    title: 'Pendulation Tracking Form',
+    shortTitle: 'Pendulation Tracking',
+    summary: 'Notice movement between activation and settling without forcing either state.',
+    description:
+      'Track how your system moves between intensity and ease so you can observe change in smaller, steadier steps.',
+    estimatedTime: '3 minutes',
+    audience: 'Helpful after a stressful moment, before a transition, or when you want to notice what supports settling.',
+    fields: [
+      { name: 'activationLevel', label: 'Activation level right now', type: 'range', min: 1, max: 10, description: '1 is very settled, 10 is very activated.' },
+      { name: 'settlingLevel', label: 'How much settling do you notice?', type: 'range', min: 1, max: 10, description: '1 is very little, 10 is a strong sense of ease.' },
+      { name: 'resourceNoticed', label: 'What feels resourcing right now?', type: 'text', placeholder: 'Example: the chair under me, warm light, a steady breath' },
+      { name: 'transitionNotes', label: 'What do you notice between activation and settling?', type: 'textarea', rows: 4, placeholder: 'Observe shifts in breath, pace, posture, or attention.' },
+      { name: 'steadyMoment', label: 'Describe one steadier moment', type: 'textarea', rows: 3, placeholder: 'Notice one moment that feels even slightly more settled.' },
+      { name: 'notes', label: 'Notes', type: 'textarea', rows: 3, placeholder: 'Anything else you want to remember from this pendulation practice.' },
+    ],
+  },
+  {
+    slug: 'resource-anchoring',
+    title: 'Resource Anchoring Form',
+    shortTitle: 'Resource Anchoring',
+    summary: 'Identify a supportive cue and notice how it lands in your body.',
+    description:
+      'Use this form to anchor into something supportive and observe how your system responds.',
+    estimatedTime: '2 minutes',
+    audience: 'Useful when you want to return to a supportive cue before a task, conversation, or transition.',
+    fields: [
+      { name: 'resourceName', label: 'Resource or support cue', type: 'text', placeholder: 'Example: a memory, a person, a phrase, a place, or a sensation' },
+      { name: 'bodyArea', label: 'Where do you notice it in your body?', type: 'select', options: tensionAreaOptions },
+      { name: 'sensation', label: 'What sensation comes with it?', type: 'select', options: sensationOptions },
+      { name: 'anchorPhrase', label: 'Anchor phrase', type: 'text', placeholder: 'Example: I can come back to this support.' },
+      { name: 'supportLevel', label: 'How supportive does it feel?', type: 'range', min: 1, max: 10, description: '1 is barely supportive, 10 is strongly supportive.' },
+      { name: 'nextSupport', label: 'What will help you stay connected to it?', type: 'textarea', rows: 3, placeholder: 'Notice one small way to keep this support close.' },
+    ],
+  },
+  {
+    slug: 'titration-awareness',
+    title: 'Titration Awareness Form',
+    shortTitle: 'Titration Awareness',
+    summary: 'Break a bigger experience into a smaller, more manageable next step.',
+    description:
+      'Use this form to notice a small amount at a time so you can move with more choice and less overwhelm.',
+    estimatedTime: '3 minutes',
+    audience: 'Helpful when something feels like too much and you want to slow the pace into smaller steps.',
+    fields: [
+      { name: 'activationLevel', label: 'Activation level before you slow it down', type: 'range', min: 1, max: 10 },
+      { name: 'smallerStep', label: 'What is one smaller step you can notice?', type: 'text', placeholder: 'Example: one breath, one sentence, one body area, one part of the task' },
+      { name: 'pauseSignal', label: 'What tells you it is time to pause?', type: 'textarea', rows: 3, placeholder: 'Observe the signal that lets you know you need more space.' },
+      { name: 'afterShift', label: 'What changed after slowing it down?', type: 'textarea', rows: 4, placeholder: 'Notice any change in pace, clarity, or body sensation.' },
+      {
+        name: 'paceSupported',
+        label: 'Did the slower pace feel supportive?',
+        type: 'radio',
+        options: [
+          { label: 'Yes', value: 'yes' },
+          { label: 'A little', value: 'a-little' },
+          { label: 'Not yet', value: 'not-yet' },
+        ],
+      },
+      { name: 'notes', label: 'Notes', type: 'textarea', rows: 3, placeholder: 'Add any reminder that may support your next small step.' },
+    ],
+  },
+  {
+    slug: 'boundary-containment',
+    title: 'Boundary and Containment Form',
+    shortTitle: 'Boundary & Containment',
+    summary: 'Observe where you need more support, space, or structure around a situation.',
+    description:
+      'Use this form to notice body cues around boundaries and identify one supportive next step.',
+    estimatedTime: '3 minutes',
+    audience: 'Helpful after a demanding interaction or anytime you want more clarity about support and limits.',
+    fields: [
+      { name: 'situation', label: 'Situation you are responding to', type: 'text', placeholder: 'Keep it brief and concrete.' },
+      { name: 'bodyCue', label: 'What body cue tells you a boundary is needed?', type: 'text', placeholder: 'Example: tight jaw, shallow breath, urge to withdraw' },
+      { name: 'supportNeeded', label: 'What kind of support or containment feels useful?', type: 'textarea', rows: 4, placeholder: 'Example: more space, clearer timing, a pause, help from someone else' },
+      { name: 'boundaryStep', label: 'One next boundary-supporting step', type: 'textarea', rows: 3, placeholder: 'Notice one clear, supportive next step.' },
+      { name: 'settledLevel', label: 'How settled do you feel after naming it?', type: 'range', min: 1, max: 10, description: '1 is not settled, 10 is much steadier.' },
+      { name: 'notes', label: 'Notes', type: 'textarea', rows: 3, placeholder: 'Anything else you want to observe about this boundary practice.' },
+    ],
+  },
+  {
+    slug: 'somatic-tracking',
+    title: 'Somatic Tracking Form',
+    shortTitle: 'Somatic Tracking',
+    summary: 'Track a sensation with gentle curiosity and notice what support fits the moment.',
+    description:
+      'Use this form to stay with a sensation in a steady way and observe how it shifts over time.',
+    estimatedTime: '2 minutes',
+    audience: 'Useful when you want to observe a sensation with more curiosity and less urgency.',
+    fields: [
+      { name: 'bodyArea', label: 'Body area', type: 'select', options: tensionAreaOptions },
+      { name: 'sensation', label: 'Sensation', type: 'select', options: sensationOptions },
+      { name: 'intensity', label: 'Intensity', type: 'range', min: 1, max: 10, description: '1 is subtle, 10 is strong.' },
+      {
+        name: 'pace',
+        label: 'What pace feels most supportive?',
+        type: 'radio',
+        options: [
+          { label: 'Slow down', value: 'slow-down' },
+          { label: 'Stay here', value: 'stay-here' },
+          { label: 'Step back', value: 'step-back' },
+        ],
+      },
+      { name: 'observation', label: 'What do you notice as you track it?', type: 'textarea', rows: 4, placeholder: 'Observe changes in shape, temperature, movement, or intensity.' },
+      { name: 'supportNow', label: 'What support fits right now?', type: 'textarea', rows: 3, placeholder: 'Example: rest, movement, water, a pause, connection, quiet.' },
+    ],
+  },
 ];
 
 export const formLookup = Object.fromEntries(formDefinitions.map((form) => [form.slug, form]));
