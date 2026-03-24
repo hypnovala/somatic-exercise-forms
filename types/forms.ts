@@ -109,48 +109,55 @@ export type RegulationTrackerValues = {
 };
 
 export type PendulationTrackingValues = {
-  activationLevel: number;
-  settlingLevel: number;
-  resourceNoticed: string;
-  transitionNotes: string;
-  steadyMoment: string;
+  discomfortArea: string;
+  neutralArea: string;
+  sensationInDiscomfort: string;
+  sensationInNeutral: string;
+  intensityBefore: number;
+  intensityAfter: number;
+  didShiftOccur: string;
   notes: string;
 };
 
 export type ResourceAnchoringValues = {
-  resourceName: string;
-  bodyArea: string;
-  sensation: string;
-  anchorPhrase: string;
-  supportLevel: number;
-  nextSupport: string;
+  resourceType: string;
+  whereFeltInBody: string;
+  sensationQuality: string;
+  intensityOfResource: number;
+  didItExpand: string;
+  whatHelpedItGrow: string;
+  notes: string;
 };
 
 export type TitrationAwarenessValues = {
-  activationLevel: number;
-  smallerStep: string;
-  pauseSignal: string;
-  afterShift: string;
-  paceSupported: string;
+  sensationNoticed: string;
+  intensityLevel: number;
+  wasItManageable: string;
+  didYouPause: string;
+  whatHelpedRegulate: string;
+  afterState: number;
   notes: string;
 };
 
 export type BoundaryContainmentValues = {
-  situation: string;
-  bodyCue: string;
-  supportNeeded: string;
-  boundaryStep: string;
-  settledLevel: number;
+  boundaryAwareness: string;
+  whereYouFeelContained: string;
+  whereYouFeelOpenOrExposed: string;
+  didContainmentIncrease: string;
+  whatHelpedContainment: string;
+  bodyResponse: string;
   notes: string;
 };
 
 export type SomaticTrackingValues = {
-  bodyArea: string;
-  sensation: string;
-  intensity: number;
-  pace: string;
-  observation: string;
-  supportNow: string;
+  sensationLocation: string;
+  sensationType: string;
+  sensationMovement: string;
+  intensityStart: number;
+  intensityEnd: number;
+  didItChange: string;
+  changeDescription: string;
+  notes: string;
 };
 
 export type FormValuesMap = {
